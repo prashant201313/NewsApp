@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import News from './components/News';
 import LoadingBar from 'react-top-loading-bar';
 
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App = () => {
   const apiKey = process.env.REACT_APP_NEWS_API;
@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <div>
-      <HashRouter>
+      <BrowserRouter>
         <Navbar />
         <LoadingBar height={3} color='#f11946' progress={progress} />
         <Routes>
@@ -27,7 +27,7 @@ const App = () => {
           <Route exact path="/sports" element={<News setProgress={setProgress} apiKey={apiKey} key="sports" pageSize={pageSize} country="in" category="sports" />}></Route>
           <Route exact path="/technology" element={<News setProgress={setProgress} apiKey={apiKey} key="technology" pageSize={pageSize} country="in" category="technology" />}></Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </div>
   );
 }
